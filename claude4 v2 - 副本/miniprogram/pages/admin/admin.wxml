@@ -1,0 +1,56 @@
+<!-- pages/admin/admin.wxml -->
+<view class="container admin-container">
+  <!-- 头部标题 -->
+  <view class="admin-header">
+    <view class="header-title">管理后台</view>
+    <view class="header-subtitle">欢迎，{{userInfo.nickname}}</view>
+  </view>
+
+  <!-- 管理功能列表 -->
+  <view class="admin-menu">
+    <view class="menu-item" bindtap="goToOrderManage">
+      <view class="menu-icon">📋</view>
+      <view class="menu-info">
+        <view class="menu-title">订单管理</view>
+        <view class="menu-desc">查看和处理订单</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+
+    <view class="menu-item" bindtap="goToMenuManage">
+      <view class="menu-icon">🍽️</view>
+      <view class="menu-info">
+        <view class="menu-title">菜单管理</view>
+        <view class="menu-desc">添加和编辑菜品</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+
+    <view class="menu-item" bindtap="goToUserManage">
+      <view class="menu-icon">👥</view>
+      <view class="menu-info">
+        <view class="menu-title">用户管理</view>
+        <view class="menu-desc">管理用户权限</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+
+    <view class="menu-item" bindtap="goToStatistics">
+      <view class="menu-icon">📊</view>
+      <view class="menu-info">
+        <view class="menu-title">数据统计</view>
+        <view class="menu-desc">查看统计信息</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+
+    <view class="menu-item" bindtap="goToBackupManage">
+      <view class="menu-icon">💾</view>
+      <view class="menu-info">
+        <view class="menu-title">备份管理</view>
+        <view class="menu-desc">数据备份与恢复</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+</view>

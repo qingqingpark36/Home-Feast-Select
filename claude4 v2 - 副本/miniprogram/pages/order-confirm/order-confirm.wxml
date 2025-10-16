@@ -1,0 +1,7 @@
+<!-- pages/order-confirm/order-confirm.wxml -->
+<!-- 此页面已被购物车页面的功能整合，暂不单独实现 -->
+<view class="container">
+  <view class="empty-state">
+    <text>此功能已整合到购物车页面</text>
+  </view>
+</view>

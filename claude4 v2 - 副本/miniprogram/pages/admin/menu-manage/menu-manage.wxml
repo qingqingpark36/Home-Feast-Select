@@ -1,0 +1,36 @@
+<!-- pages/admin/menu-manage/menu-manage.wxml -->
+<view class="container menu-manage-container">
+  <!-- 添加按钮 -->
+  <view class="add-btn-wrapper">
+    <button class="add-btn" bindtap="addDish">+ 添加菜品</button>
+  </view>
+
+  <!-- 菜品列表 -->
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+
+  <view wx:elif="{{dishes.length === 0}}" class="empty-state">
+    <text>暂无菜品</text>
+  </view>
+
+  <view wx:else class="dish-list">
+    <view wx:for="{{dishes}}" wx:key="_id" class="dish-card">
+      <image class="dish-image" src="{{item.image || '/images/default-dish.png'}}" mode="aspectFill"></image>
+
+      <view class="dish-info">
+        <view class="dish-name">{{item.name}}</view>
+        <view class="dish-category">{{getCategoryName(item.category)}}</view>
+        <view class="dish-status {{item.status}}">
+          {{item.status === 'online' ? '已上架' : '已下架'}}
+        </view>
+      </view>
+
+      <view class="dish-actions">
+        <button class="action-btn edit-btn" bindtap="editDish" data-id="{{item._id}}">编辑</button>
+        <button class="action-btn toggle-btn" bindtap="toggleStatus" data-id="{{item._id}}" data-status="{{item.status}}">
+          {{item.status === 'online' ? '下架' : '上架'}}
+        </button>
+        <button class="action-btn delete-btn" bindtap="deleteDish" data-id="{{item._id}}">删除</button>
+      </view>
+    </view>
+  </view>
+</view>

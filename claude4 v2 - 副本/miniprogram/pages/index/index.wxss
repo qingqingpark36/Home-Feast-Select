@@ -1,0 +1,111 @@
+/* pages/index/index.wxss */
+.index-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40rpx 30rpx;
+}
+
+/* 欢迎区域 */
+.welcome-section {
+  text-align: center;
+  color: white;
+  margin-bottom: 60rpx;
+  padding-top: 40rpx;
+}
+
+.welcome-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.welcome-desc {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+/* 功能卡片 */
+.feature-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+  margin-bottom: 60rpx;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.feature-card:active {
+  transform: scale(0.98);
+}
+
+.card-icon {
+  font-size: 80rpx;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.card-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.card-desc {
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+}
+
+.admin-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.admin-card .card-title,
+.admin-card .card-desc {
+  color: white;
+}
+
+/* 用户信息 */
+.user-info-section {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background-color: #f0f0f0;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.user-role {
+  font-size: 26rpx;
+  color: #999;
+}

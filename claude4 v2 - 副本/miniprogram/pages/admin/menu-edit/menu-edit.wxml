@@ -1,0 +1,54 @@
+<!-- pages/admin/menu-edit/menu-edit.wxml -->
+<view class="container menu-edit-container">
+  <view class="form-section card">
+    <!-- 菜品图片 -->
+    <view class="form-item">
+      <view class="form-label">菜品图片</view>
+      <view class="image-upload" bindtap="uploadImage">
+        <image wx:if="{{formData.image}}" class="dish-image-preview" src="{{formData.image}}" mode="aspectFill"></image>
+        <view wx:else class="upload-placeholder">
+          <text>点击上传图片</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 菜品名称 -->
+    <view class="form-item">
+      <view class="form-label">菜品名称 *</view>
+      <input
+        class="form-input"
+        placeholder="请输入菜品名称"
+        value="{{formData.name}}"
+        bindinput="onNameInput"
+      />
+    </view>
+
+    <!-- 菜品分类 -->
+    <view class="form-item">
+      <view class="form-label">菜品分类 *</view>
+      <picker
+        mode="selector"
+        range="{{categories}}"
+        range-key="name"
+        value="{{categoryIndex}}"
+        bindchange="onCategoryChange">
+        <view class="form-picker">
+          {{categories[categoryIndex].name}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 状态 -->
+    <view class="form-item">
+      <view class="form-label">状态</view>
+      <switch checked="{{formData.status === 'online'}}" bindchange="onStatusChange" color="#07c160"/>
+      <text class="status-text">{{formData.status === 'online' ? '上架' : '下架'}}</text>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="form-actions">
+      <button class="submit-btn" bindtap="submitForm">{{isEdit ? '保存' : '添加'}}</button>
+      <button class="cancel-btn" bindtap="cancel">取消</button>
+    </view>
+  </view>
+</view>

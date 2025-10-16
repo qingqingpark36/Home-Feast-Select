@@ -1,0 +1,33 @@
+<!-- pages/order-history/order-history.wxml -->
+<view class="container order-history-container">
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+
+  <view wx:elif="{{orders.length === 0}}" class="empty-state">
+    <view class="empty-icon">📋</view>
+    <view class="empty-text">暂无订单</view>
+  </view>
+
+  <view wx:else class="order-list">
+    <view wx:for="{{orders}}" wx:key="_id" class="order-card">
+      <!-- 订单头部 -->
+      <view class="order-header">
+        <view class="order-time">{{formatTime(item.createTime)}}</view>
+        <view class="order-status {{item.status}}">{{getStatusText(item.status)}}</view>
+      </view>
+
+      <!-- 订单菜品列表 -->
+      <view class="order-dishes">
+        <view wx:for="{{item.dishes}}" wx:key="dishId" wx:for-item="dish" class="dish-item">
+          <view class="dish-name">{{dish.name}}</view>
+          <view class="dish-count">x{{dish.count}}</view>
+        </view>
+      </view>
+
+      <!-- 订单备注 -->
+      <view wx:if="{{item.notes}}" class="order-notes">
+        <view class="notes-label">备注：</view>
+        <view class="notes-text">{{item.notes}}</view>
+      </view>
+    </view>
+  </view>
+</view>

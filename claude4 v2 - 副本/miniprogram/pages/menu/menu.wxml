@@ -1,0 +1,70 @@
+<!-- pages/menu/menu.wxml -->
+<view class="container menu-container">
+  <!-- 分类导航 -->
+  <view class="category-nav">
+    <scroll-view scroll-x class="category-scroll">
+      <view class="category-list">
+        <view
+          class="category-item {{currentCategory === '' ? 'active' : ''}}"
+          bindtap="selectCategory"
+          data-category="">
+          全部
+        </view>
+        <view
+          wx:for="{{categories}}"
+          wx:key="id"
+          class="category-item {{currentCategory === item.id ? 'active' : ''}}"
+          bindtap="selectCategory"
+          data-category="{{item.id}}">
+          {{item.icon}} {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 菜品列表 -->
+  <view class="dish-list">
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+
+    <view wx:elif="{{filteredDishes.length === 0}}" class="empty-state">
+      <text>暂无菜品</text>
+    </view>
+
+    <view wx:else class="dish-grid">
+      <view
+        wx:for="{{filteredDishes}}"
+        wx:key="_id"
+        class="dish-card"
+        bindtap="showDishDetail"
+        data-dish="{{item}}">
+        <!-- 菜品图片 -->
+        <view class="dish-image-wrapper">
+          <image
+            class="dish-image"
+            src="{{item.image || '/images/default-dish.png'}}"
+            mode="aspectFill">
+          </image>
+        </view>
+
+        <!-- 菜品信息 -->
+        <view class="dish-info">
+          <view class="dish-name">{{item.name}}</view>
+          <view class="dish-category">{{getCategoryName(item.category)}}</view>
+        </view>
+
+        <!-- 添加按钮 -->
+        <view class="dish-action">
+          <button class="add-btn" catchtap="addToCart" data-dish="{{item}}">
+            + 加入
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 购物车按钮 -->
+  <view class="cart-float-btn" bindtap="goToCart">
+    <view class="cart-icon">🛒</view>
+    <view wx:if="{{cartCount > 0}}" class="cart-badge">{{cartCount}}</view>
+  </view>
+</view>

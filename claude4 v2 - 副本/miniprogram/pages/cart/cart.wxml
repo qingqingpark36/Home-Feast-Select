@@ -1,0 +1,58 @@
+<!-- pages/cart/cart.wxml -->
+<view class="container cart-container">
+  <!-- 购物车列表 -->
+  <view wx:if="{{cart.length === 0}}" class="empty-cart">
+    <view class="empty-icon">🛒</view>
+    <view class="empty-text">购物车是空的</view>
+    <button class="go-menu-btn" bindtap="goToMenu">去点餐</button>
+  </view>
+
+  <view wx:else>
+    <!-- 购物车商品列表 -->
+    <view class="cart-list">
+      <view wx:for="{{cart}}" wx:key="_id" class="cart-item">
+        <!-- 商品图片 -->
+        <view class="item-image-wrapper">
+          <image
+            class="item-image"
+            src="{{item.image || '/images/default-dish.png'}}"
+            mode="aspectFill">
+          </image>
+        </view>
+
+        <!-- 商品信息 -->
+        <view class="item-info">
+          <view class="item-name">{{item.name}}</view>
+          <view class="item-category">{{getCategoryName(item.category)}}</view>
+        </view>
+
+        <!-- 数量控制 -->
+        <view class="item-quantity">
+          <view class="quantity-btn" bindtap="decreaseCount" data-id="{{item._id}}">-</view>
+          <view class="quantity-num">{{item.count}}</view>
+          <view class="quantity-btn" bindtap="increaseCount" data-id="{{item._id}}">+</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 备注 -->
+    <view class="notes-section card">
+      <view class="section-title">备注信息</view>
+      <textarea
+        class="notes-input"
+        placeholder="请输入备注信息（可选）"
+        value="{{notes}}"
+        bindinput="onNotesInput"
+        maxlength="200">
+      </textarea>
+    </view>
+
+    <!-- 底部操作栏 -->
+    <view class="cart-footer">
+      <view class="footer-info">
+        <view class="total-label">共 {{totalCount}} 道菜</view>
+      </view>
+      <button class="submit-btn" bindtap="submitOrder">提交订单</button>
+    </view>
+  </view>
+</view>

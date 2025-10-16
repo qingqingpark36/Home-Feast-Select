@@ -1,0 +1,46 @@
+/* pages/admin/backup-manage/backup-manage.wxss */
+.backup-container {
+  padding: 20rpx;
+}
+
+.backup-section {
+  margin-bottom: 30rpx;
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.backup-btn {
+  width: 100%;
+  background: #07c160;
+  color: white;
+  border-radius: 8rpx;
+  padding: 28rpx;
+  font-size: 32rpx;
+}
+
+.backup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.backup-item {
+  padding: 25rpx;
+}
+
+.backup-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.backup-time, .backup-operator {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 5rpx;
+}

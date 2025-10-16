@@ -1,0 +1,43 @@
+<!-- pages/index/index.wxml -->
+<view class="container index-container">
+  <!-- 顶部欢迎区域 -->
+  <view class="welcome-section">
+    <view class="welcome-title">家庭点餐系统</view>
+    <view class="welcome-desc">欢迎来到家庭点餐，快来选择您喜欢的菜品吧</view>
+  </view>
+
+  <!-- 功能卡片 -->
+  <view class="feature-cards">
+    <!-- 点餐卡片 -->
+    <view class="feature-card" bindtap="goToMenu">
+      <view class="card-icon">🍽️</view>
+      <view class="card-title">开始点餐</view>
+      <view class="card-desc">浏览菜单，选择您喜欢的菜品</view>
+    </view>
+
+    <!-- 我的订单卡片 -->
+    <view class="feature-card" bindtap="goToOrderHistory">
+      <view class="card-icon">📋</view>
+      <view class="card-title">我的订单</view>
+      <view class="card-desc">查看历史订单记录</view>
+    </view>
+
+    <!-- 管理后台卡片（仅管理员可见） -->
+    <view class="feature-card admin-card" wx:if="{{isAdmin}}" bindtap="goToAdmin">
+      <view class="card-icon">⚙️</view>
+      <view class="card-title">管理后台</view>
+      <view class="card-desc">管理菜单、订单和用户</view>
+    </view>
+  </view>
+
+  <!-- 用户信息 -->
+  <view class="user-info-section">
+    <view class="user-info">
+      <image class="user-avatar" src="{{userInfo.avatar || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="user-details">
+        <view class="user-name">{{userInfo.nickname || '游客'}}</view>
+        <view class="user-role">{{isAdmin ? '管理员' : '访客'}}</view>
+      </view>
+    </view>
+  </view>
+</view>

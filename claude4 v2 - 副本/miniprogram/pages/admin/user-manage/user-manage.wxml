@@ -1,0 +1,27 @@
+<!-- pages/admin/user-manage/user-manage.wxml -->
+<view class="container user-manage-container">
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+
+  <view wx:elif="{{users.length === 0}}" class="empty-state">
+    <text>暂无用户</text>
+  </view>
+
+  <view wx:else class="user-list">
+    <view wx:for="{{users}}" wx:key="_id" class="user-card">
+      <image class="user-avatar" src="{{item.avatar || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+
+      <view class="user-info">
+        <view class="user-name">{{item.nickname}}</view>
+        <view class="user-role {{item.role}}">{{item.role === 'admin' ? '管理员' : '访客'}}</view>
+      </view>
+
+      <button
+        class="role-btn {{item.role}}"
+        bindtap="toggleRole"
+        data-id="{{item._id}}"
+        data-role="{{item.role}}">
+        {{item.role === 'admin' ? '设为访客' : '设为管理员'}}
+      </button>
+    </view>
+  </view>
+</view>

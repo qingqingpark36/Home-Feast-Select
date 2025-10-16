@@ -1,0 +1,43 @@
+<!-- pages/admin/statistics/statistics.wxml -->
+<view class="container statistics-container">
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+
+  <view wx:else>
+    <!-- 订单统计 -->
+    <view class="stat-card card">
+      <view class="card-title">订单统计</view>
+      <view class="stat-grid">
+        <view class="stat-item">
+          <view class="stat-value">{{orderStats.total}}</view>
+          <view class="stat-label">总订单</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value" style="color: #faad14">{{orderStats.pending}}</view>
+          <view class="stat-label">待处理</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value" style="color: #1890ff">{{orderStats.confirmed}}</view>
+          <view class="stat-label">已确认</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value" style="color: #52c41a">{{orderStats.completed}}</view>
+          <view class="stat-label">已完成</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 菜品统计 -->
+    <view class="stat-card card">
+      <view class="card-title">热门菜品</view>
+      <view class="dish-stat-list">
+        <view wx:for="{{dishStats}}" wx:key="dishId" class="dish-stat-item">
+          <view class="dish-rank">{{index + 1}}</view>
+          <view class="dish-stat-info">
+            <view class="dish-stat-name">{{item.name}}</view>
+            <view class="dish-stat-count">被点 {{item.totalQuantity}} 次</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

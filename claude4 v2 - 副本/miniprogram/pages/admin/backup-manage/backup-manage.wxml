@@ -1,0 +1,22 @@
+<!-- pages/admin/backup-manage/backup-manage.wxml -->
+<view class="container backup-container">
+  <view class="backup-section card">
+    <view class="section-title">数据备份</view>
+    <button class="backup-btn" bindtap="backupDatabase">备份数据库</button>
+  </view>
+
+  <view class="history-section">
+    <view class="section-title">备份历史</view>
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+    <view wx:elif="{{backups.length === 0}}" class="empty-state">暂无备份</view>
+    <view wx:else class="backup-list">
+      <view wx:for="{{backups}}" wx:key="_id" class="backup-item card">
+        <view class="backup-info">
+          <view class="backup-name">{{item.fileName}}</view>
+          <view class="backup-time">{{formatTime(item.createTime)}}</view>
+          <view class="backup-operator">操作人：{{item.operator}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

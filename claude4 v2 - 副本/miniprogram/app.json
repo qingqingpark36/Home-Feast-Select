@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/menu/menu",
+    "pages/cart/cart",
+    "pages/order-confirm/order-confirm",
+    "pages/order-history/order-history",
+    "pages/admin/admin",
+    "pages/admin/order-manage/order-manage",
+    "pages/admin/menu-manage/menu-manage",
+    "pages/admin/menu-edit/menu-edit",
+    "pages/admin/user-manage/user-manage",
+    "pages/admin/backup-manage/backup-manage",
+    "pages/admin/statistics/statistics"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "家庭点餐",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "cloud": true
+}

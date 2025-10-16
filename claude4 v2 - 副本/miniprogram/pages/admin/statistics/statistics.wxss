@@ -1,0 +1,79 @@
+/* pages/admin/statistics/statistics.wxss */
+.statistics-container {
+  padding: 20rpx;
+}
+
+.stat-card {
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.dish-stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.dish-stat-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+}
+
+.dish-rank {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background: #07c160;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.dish-stat-info {
+  flex: 1;
+}
+
+.dish-stat-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 5rpx;
+}
+
+.dish-stat-count {
+  font-size: 24rpx;
+  color: #999;
+}
